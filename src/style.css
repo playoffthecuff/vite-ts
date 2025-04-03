@@ -1,96 +1,113 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import url(modern-normalize.css); /* нормализуем стили для последней версии браузеров https://github.com/sindresorhus/modern-normalize */
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+:root { 
+  scroll-behavior: smooth;
+  
+  /* дефолты и цвета для светлой темы */
+  --container: 1024px;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  /* для <length> используем rem чтобы была зависимость от настроек браузера пользователя */
+  --step: 0.25rem;  /* зададим шаг для отступов */
+  --xxs:  calc(var(--step) * 0.5);      /*  2px */
+  --xs:   var(--step);                  /*  4px */
+  --s:    calc(var(--xs) * 1.5);        /*  6px */
+  --m:    calc(var(--xs) * 2);          /*  8px */
+  --l:    calc(var(--m) * 1.5);         /* 12px */
+  --xl:   calc(var(--m) * 2);           /* 16px */
+  --xxl:  calc(var(--xl) * 1.5);        /* 24px */
+  --xxxl: calc(var(--xl) * 2);          /* 32px */
+
+  --font-step: 0.25rem; /* и шаг для шрифтов    4px */
+  --font-xs:   calc(var(--font-step) * 2);  /*  8px */
+  --font-s:    calc(var(--font-xs) * 1.5);  /* 12px */
+  --font-m:    calc(var(--font-xs) * 2);    /* 16px */
+  --font-l:    calc(var(--font-m) * 1.25);  /* 20px */
+  --font-xl:   calc(var(--font-m) * 1.5);   /* 24px */
+  --font-xxl:  calc(var(--font-xl) * 1.25); /* 30px */
+  --font-xxxl: calc(var(--font-xl) * 1.5);  /* 36px */
+
+  --background: #fff;
+  --foreground: #222;
+  --muted: #ddd;
+  --muted-foreground: #444;
+  --primary: #00d;
+  --secondary: #707;
+  --accent: #000;
+  --error: #d00;
+  --success: #0d0;
+  --shadow: #20202040;
+
+  --shadow-size: 0.25rem;
+  --shadow-blur: 1rem;
+  --shadow-spread: 0.125rem;
+  --shadow-bottom: 0 var(--shadow-size) var(--shadow-blur) var(--shadow-spread) var(--shadow);
+
+  --transition: 0.1s; /* базовое время для анимаций */
+  --theme-transition: color calc(var(--transition) * 8) ease-in, background-color calc(var(--transition) * 8) ease-in;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+.dark { /* переопределение для тёмной темы */
+  --background: #000;
+  --foreground: #ddd;
+  --muted: #222;
+  --muted-foreground: #bbb;
+  --primary: #44d;
+  --secondary: #747;
+  --accent: #fff;
+  --error: #d00;
+  --success: #0d0;
+  --shadow: #d0d0d040;
+  --shadow-bottom: 0 var(--shadow-size) var(--shadow-blur) var(--shadow-spread) var(--shadow);
 }
 
-body {
-  margin: 0;
+body { /* настройка общих стилей */
+  background-color: var(--background);
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
+  align-items: center;
+  flex-direction: column;
+  min-height: 100dvh; /* прибиваем футер */
+  color: var(--foreground);
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
+  transition: var(--theme-transition); /* плавное переключение темы */
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
+  font-size: var(--font-m);
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em #3178c6aa);
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+  h4 {
+    font-size: var(--font-l);
+    margin-block-end: 0.25em;
   }
-  a:hover {
-    color: #747bff;
+
+  h3 {
+    font-size: var(--font-xl);
+    margin-block-end: 0.25em;
   }
-  button {
-    background-color: #f9f9f9;
+
+  h2 {
+    font-size: var(--font-xxl);
+    margin-block-end: 0.25em;
   }
+
+  h1 {
+    font-size: var(--font-xxxl);
+    margin-block-end: 0.25em;
+  }
+
+  p {
+    margin-block-start: 0.25em;
+  }
+
+  a {
+    color: var(--primary);
+    text-underline-offset: 2px;
+
+    &:visited {
+      color: var(--secondary);
+    }
+  }
+}
+
+.reverse { /* правила для блоков с инверсным текстом */
+  background-color: var(--accent);
+  color: var(--background);
+  transition: var(--theme-transition);
 }
