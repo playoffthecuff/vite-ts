@@ -1,5 +1,6 @@
+import footer from './components/footer';
 import './style.css'
 
-document.body.append()
+document.body.append(footer)
 
 
