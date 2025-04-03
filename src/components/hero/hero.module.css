@@ -1,0 +1,10 @@
+.hero {
+  height: calc(100dvh - 3rem); /* высоту захардкодил на высоту экрана минус хэдер чтобы не заморачиваться */
+  width: 100%;
+}
+
+.background {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
