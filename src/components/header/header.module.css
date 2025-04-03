@@ -1,0 +1,40 @@
+.header {
+  width: 100%;
+  box-shadow: var(--shadow-bottom);
+  position: sticky;
+  top: 0;
+  background-color: var(--background);
+  transition: var(--theme-transition);
+  z-index: 10;
+}
+
+.wrapper {
+  max-width: var(--container);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--m) var(--xl);
+}
+
+.navigation {
+  ul {
+    display: flex;
+    gap: var(--xl);
+    line-height: 2;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    list-style-type: none;
+  }
+}
+
+.logo {
+  padding: var(--xs);
+  display: flex;
+  &> svg {
+    color: var(--foreground);
+  }
+}
