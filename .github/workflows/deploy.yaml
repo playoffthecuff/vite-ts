@@ -1,0 +1,34 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - ru
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository checkout
+        uses: actions/checkout@v4
+
+      - name: Bun install
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: Dependencies install
+        run: bun install --frozen-lockfile
+
+      - name: Project build
+        run: bun run build
+
+      - name: GitHub Pages deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: dist
+          clean: true
