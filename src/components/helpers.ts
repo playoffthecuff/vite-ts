@@ -60,3 +60,18 @@ export const li = createElementFactory("li");
 export const nav = createElementFactory("nav");
 export const span = createElementFactory("span");
 export const ul = createElementFactory("ul"); // насыпем нужных тегов
+
+export const createSvgElement = (
+	svg: string,
+	width = 24,
+	height = 24,
+	className?: string,
+) => {
+	const el = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+	el.setAttribute("width", String(width));
+	el.setAttribute("height", String(height));
+	el.insertAdjacentHTML("beforeend", svg);
+	if (className) el.classList.add(className);
+	el.setAttribute("viewBox", "0 0 16 16");
+	return el;
+}; // создание инлайновых свг

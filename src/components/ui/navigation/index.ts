@@ -1,4 +1,4 @@
-import { a, li, nav, ul } from "../helpers";
+import { a, li, nav, ul } from "../../helpers";
 
 export interface Link {
 	href: string;
