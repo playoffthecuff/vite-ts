@@ -1,0 +1,11 @@
+.main {
+  max-width: var(--container);
+  flex-grow: 1;
+  width: 100%;
+  margin: var(--xxxl) 0;
+}
+
+.heading {
+  margin: 0;
+  padding: var(--xl)
+}

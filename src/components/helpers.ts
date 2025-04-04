@@ -52,6 +52,7 @@ export const createElementFactory =
 	}; // фабрика функций создания html элементов, с поддержкой дочерних svg и опциональными свойствами
 
 export const a = createElementFactory("a");
+export const article = createElementFactory("article");
 export const button = createElementFactory("button");
 export const div = createElementFactory("div");
 export const header = createElementFactory("header");
@@ -75,3 +76,6 @@ export const createSvgElement = (
 	el.setAttribute("viewBox", "0 0 16 16");
 	return el;
 }; // создание инлайновых свг
+
+export const sanitizeHtml = (html: string) =>
+	html.replace(/<script\b[^<]*>.*?<\/script>/gi, ""); // очистка html строк от скриптов

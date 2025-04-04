@@ -1,4 +1,4 @@
-import { type Tag, createElement } from "./helpers";
+import { type Tag, createElement, sanitizeHtml } from "./helpers";
 
 export abstract class Base<T extends Tag = "div"> {
 	// абстрактный класс с базовыми методами
@@ -47,5 +47,12 @@ export abstract class Base<T extends Tag = "div"> {
 	destroy() {
 		this.removeChildren();
 		this.#el.remove();
+	}
+
+	addStaticMarkup(
+		html: string,
+		p: Exclude<InsertPosition, "afterend" | "beforebegin"> = "afterbegin",
+	) {
+		this.#el.insertAdjacentHTML(p, sanitizeHtml(html));
 	}
 }
