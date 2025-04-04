@@ -1,0 +1,40 @@
+.wrapper {
+	width: 100%;
+}
+
+.tablist {
+	display: flex;
+  position: sticky;
+	top: 0;
+	background-color: var(--muted-foreground);
+	transition: var(--theme-transition);
+	padding: var(--s) var(--xl) 0;
+}
+
+.tab {
+	padding: var(--s) var(--l);
+	border: none;
+	background-color: transparent;
+	transition: var(--transition);
+	color: var(--background);
+	text-transform: uppercase;
+	border-right: 1px solid var(--background);
+	border-left: 1px solid var(--background);
+
+	&:hover {
+		cursor: pointer;
+		background-color: var(--primary);
+	}
+
+	&[aria-selected] {
+		background-color: var(--background);
+		color: var(--foreground);
+		&:hover {
+			pointer-events: none;
+		}
+	}
+}
+
+.tab-panel {
+	padding: var(--xl);
+}
