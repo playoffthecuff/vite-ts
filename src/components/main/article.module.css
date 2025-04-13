@@ -34,11 +34,11 @@
 }
 
 .first-column {
-  flex-basis: 60%;
+  width: 60%;
 }
 
 .second-column {
-  flex-basis: 37%;
+  width: 37%;
   background-color: var(--muted);
   color: var(--accent);
   transition: var(--theme-transition);
@@ -47,10 +47,10 @@
 
 @container (max-width: 768px) {
   .first-column {
-    flex-basis: 100%;
+    width: 100%;
   }
   .second-column {
-    flex-basis: 100%;
+    width: 100%;
   }
 
 }

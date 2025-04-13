@@ -1,4 +1,5 @@
-import { a, li, nav, ul } from "../../helpers";
+import { link } from "../../../lib/router";
+import { li, nav, ul } from "../../helpers";
 
 export interface Link {
 	href: string;
@@ -12,7 +13,7 @@ export const navigation = (links: Link[], props: Partial<HTMLElement>) =>
 		props,
 		ul(
 			...links.map(({ href, text, blank }) =>
-				li(a({ href, text, target: blank ? "_blank" : "_self" })),
+				li(link({ href, text, target: blank ? "_blank" : "_self" })),
 			),
 		),
 	);

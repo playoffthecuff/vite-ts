@@ -4,6 +4,7 @@ import logo from "../ui/logo";
 import { type Link, navigation } from "../ui/navigation";
 import ThemeToggle from "./theme-toggle";
 import css from "./header.module.css";
+import { link } from "../../lib/router";
 
 const navLinks: Link[] = [
 	{ href: "./first", text: "First" },
@@ -29,7 +30,7 @@ export default class Header extends Base<"header"> {
 		const themeToggler = new ThemeToggle();
 		const wrapper = div(
 			{ className: css.wrapper },
-			logo(24, 24, { className: css.logo }),
+			link({href: './'}, logo(24, 24, { className: css.logo })), // переделал лого в ссылку чтобы протестить корневой роут
 			navigation(navLinks, { className: css.navigation }),
 			themeToggler.element,
 		);

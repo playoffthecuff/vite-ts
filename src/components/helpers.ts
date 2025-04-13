@@ -61,6 +61,7 @@ export const li = createElementFactory("li");
 export const nav = createElementFactory("nav");
 export const span = createElementFactory("span");
 export const ul = createElementFactory("ul"); // насыпем нужных тегов
+export const h1 = createElementFactory("h1");
 
 export const createSvgElement = (
 	svg: string,
