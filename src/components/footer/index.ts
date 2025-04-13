@@ -1,3 +1,4 @@
+import { on } from "../../lib/utils/event-bus";
 import { a, createElement, div } from "../helpers";
 import logo from "../ui/logo";
 import { type Link, navigation } from "../ui/navigation";
@@ -46,5 +47,8 @@ footer.append(
 		),
 	),
 );
+
+// biome-ignore lint/suspicious/noAssignInExpressions: <explanation>
+on("paint:footer", (e) => (footer.style.backgroundColor = e.detail)); // подписываем колбек который достаёт цвет из detail и красит
 
 export default footer;
