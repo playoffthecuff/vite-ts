@@ -48,7 +48,11 @@ class Router {
 	navigate(path: string) {
 		if (path === this.#path) return;
 		const route = this.#config?.[path];  // ищем роут в нашем конфиге
-		if (!route) return this.render(path); // если нет выходим и рендерим несуществующий путь - отрендерится нат фаунд
+		if (!route) {
+			this.#path = path;
+			this.render(path);
+			return;
+		} // если нет маршрута, сохраняем несуществующий путь как текущий, рендерим его - отрендерится нат фаунд и выходим
 		const guard = route?.guard; // смотрим есть ли гард
 		let guardResult: string | boolean = true; // по умолчанию можно ходить на маршрут
 		if (guard) guardResult = guard();
