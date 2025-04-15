@@ -1,5 +1,6 @@
 import { emit } from "../../lib/utils/event-bus";
 import { Base } from "../base";
+import Chat from "../chat";
 import { button } from "../helpers";
 import css from "./third.module.css";
 
@@ -16,5 +17,6 @@ export default class ThirdPage extends Base<"main"> {
 		const button2 = button({ textContent: "paint footer blue" });
 		button2.onclick = () => emit("paint:footer", "blue");
 		this.addElementChildren(button1, button2);
+		this.addChild(new Chat())
 	}
 }

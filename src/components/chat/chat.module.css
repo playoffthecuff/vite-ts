@@ -1,0 +1,13 @@
+.window {
+  border: 1px solid var(--foreground);
+  border-radius: var(--m);
+  padding: var(--l);
+  min-height: 128px;
+  margin-bottom: var(--xxl);
+}
+
+.input {
+  margin-right: var(--xl);
+  width: 256px;
+  height: 32px;
+}
